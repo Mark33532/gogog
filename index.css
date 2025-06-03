@@ -463,10 +463,9 @@ footer {
     font-family: Arial, sans-serif;
   }
 
-
   * {
-  box-sizing: border-box;
-  max-width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
   .sidebar {
@@ -522,16 +521,6 @@ footer {
     padding: 1rem;
   }
 
-  .mapa-y-tarjeta {
-    flex-direction: column;
-  }
-
-  .mapa-container,
-  .info-tarjeta {
-    width: 100%;
-    height: 300px;
-  }
-
   #buscador,
   #listaparroquias {
     width: 90%;
@@ -550,5 +539,17 @@ footer {
     right: 10px;
     width: 65%;
     height: 300px;
+  }
+
+  /* NUEVO: Colocar mapa debajo de la tarjeta de información */
+  .mapa-y-tarjeta {
+    display: flex;
+    flex-direction: column; /* En pantallas pequeñas se apilan verticalmente */
+    gap: 1rem;
+  }
+
+  #mapaLoja {
+    height: 300px;
+    width: 100%;
   }
 }
