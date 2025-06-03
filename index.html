@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turismo en Loja</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+</head>
+<body>
+  <!-- Menú lateral izquierdo -->
+  <aside class="sidebar">
+    <ul>
+      <li>
+        <a href="#inicio">
+          <i class="fa-solid fa-house"></i>
+          <span class="tooltip">Inicio</span>
+        </a>
+      </li>
+      <li>
+        <a href="#donde-ir">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span class="tooltip">Dónde ir</span>
+        </a>
+      </li>
+      <li>
+        <a href="#que-hacer">
+          <i class="fa-solid fa-person-hiking"></i>
+          <span class="tooltip">Qué hacer</span>
+        </a>
+      </li>
+      <li>
+        <a href="#lugares">
+          <i class="fa-solid fa-landmark"></i>
+          <span class="tooltip">Lugares de Interés</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contacto">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="tooltip">Contacto</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="contenido">
+
+    <!-- Buscador en tarjeta centrada arriba -->
+    <section class="tarjeta buscador-tarjeta">
+      <input
+        type="text"
+        id="buscador"
+        placeholder="Busca tu próximo destino..."
+        autocomplete="off"
+      />
+      <ul id="listaparroquias" class="hidden"></ul>
+    </section>
+
+    <!-- Espacio entre buscador y banner -->
+    <div class="espacio"></div>
+
+    <!-- Banner -->
+    <section id="inicio" class="tarjeta banner">
+      <h2>¡Descubre el encanto de Loja!</h2>
+      <p>Un destino lleno de historia, cultura y naturaleza.</p>
+    </section>
+
+    <!-- Contenedor de tarjetas debajo del banner -->
+    <div class="tarjetas-container" id="tarjetasContainer">
+      <!-- Las tarjetas se generan con JavaScript -->
+    </div>
+
+    <!-- Contenedor para mapa y tarjeta lado a lado -->
+    <div class="mapa-y-tarjeta">
+      <div id="mapa" class="mapa-container tarjeta">
+        <div id="mapaLoja"></div>
+      </div>
+      <section class="tarjeta info-tarjeta">
+        <h3>Información adicional</h3>
+        <p>Aquí puedes poner más detalles, recomendaciones o lo que quieras.</p>
+      </section>
+    </div>
+
+    <!-- Galería carrusel -->
+    <section id="carrusel" class="tarjeta">
+      <h2>Galería de Imágenes</h2>
+      <div class="carrusel-container">
+        <div class="carrusel-slide">
+          <img src="https://invoyager.com/wp-content/uploads/Puerta-de-entrada-a-la-Ciudad-de-Loja-1024x696.jpg" alt="Lugar 1" />
+          <img src="https://radioplanetasur.ec/wp-content/uploads/2022/11/TURISMO-1024x575.jpg" alt="Lugar 2" />
+          <img src="https://th.bing.com/th/id/OIP.yZ44kUMsgFbAyGYSTjdf7AHaFN?rs=1&pid=ImgDetMain" alt="Lugar 3" />
+        </div>
+        <div class="carrusel-dots">
+          <!-- Los puntos se generarán con JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Datos generales -->
+    <section id="datos-generales" class="tarjeta">
+      <h2>Datos Generales de Loja</h2>
+      <ul>
+        <li>Altitud: 2,060 msnm</li>
+        <li>Temperatura promedio: 16°C</li>
+        <li>Población: Aproximadamente 200,000 habitantes</li>
+        <li>Fundación: 8 de diciembre de 1548</li>
+      </ul>
+    </section>
+
+    <!-- Descripción -->
+    <section id="descripcion" class="tarjeta">
+      <h2>Descripción</h2>
+      <p>Loja es una ciudad ubicada en el sur del Ecuador, conocida por su riqueza cultural, su música, su historia y sus paisajes naturales.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="tarjeta">
+      <h2>Contáctanos</h2>
+      <form>
+        <input type="text" placeholder="Nombre" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <textarea placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <div id="chatbot-icon" title="Chatbot">
+        🤖
+    </div>
+
+    <!-- Ventana del chat -->
+    <div id="chatbot-window" class="hidden">
+      <div id="chatbot-header">
+        NaviLoja
+        <button id="chatbot-close">&times;</button>
+      </div>
+      <div id="chatbot-messages"></div>
+      <form id="chatbot-form">
+        <div class="chat-input-container">
+          <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." autocomplete="off" />
+          <button type="submit" aria-label="Enviar mensaje">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="tarjeta">
+      <p>&copy; 2025 Turismo Loja. Todos los derechos reservados.</p>
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
